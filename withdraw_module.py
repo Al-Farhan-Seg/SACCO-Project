@@ -16,6 +16,6 @@ class Withdraw:
         print(f"Balance of Acc.No. {self.account_No} has been updated........")
     
     def Return_Result(self):
-        print(f"Owner of Acc_No {self.get_account_No()} has succesfully withdrawn from the SACCO......")
+        print(f"Owner of Acc_No {self.account_No} has succesfully withdrawn from the SACCO......")
 
     
