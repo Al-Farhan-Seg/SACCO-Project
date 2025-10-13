@@ -6,14 +6,14 @@ from account_module import Account
 from loan_module import Loan
 
 # Instantiating Our FIRST Member object
-m1 = Member("MiD_001", "Farhan", "Segujja", "Male", "0754882329")
+m1 = Member("MiD_001", "Farhan", "Segujja", "Male", "0754882329", "Matugga")
 m1.Register()
 m1.Withdraw()
 m1.Deposit()
 
 # Instantiating Our SECOND Member object {intended to be used for the STAFF object}
 print()
-m2 = Member("MiD_002", "Bugembe", "Mahad", 'Male', "0703889536")
+m2 = Member("MiD_002", "Bugembe", "Mahad", 'Male', "0703889536", "Kazo")
 m2.Register()
 m2.Withdraw()
 m2.Deposit()
@@ -21,21 +21,21 @@ print(m2.get_email())
 
 # Instantiating Our FIRST Account object
 print()
-acc1 = Account("4070-4300", m1.member_ID, m1.first_name, m1.last_name, m1.gender, m1.contact, "Ordinary Savings")
+acc1 = Account("4070-4300", m1.member_ID,"Ordinary Savings")
 acc1.Credit()
 acc1.Debit()
 print(f"Account Balance: UGX {acc1.Get_Balance()}")
 
 # Instantiating Our FIRST member of STAFF object {using our SECOND Member instance }
 print()
-staff_2 = Staff("SiD_002", m2.first_name, m2.last_name, m2.gender, m2.contact, "Manager", m2.member_ID)
+staff_2 = Staff("SiD_002", m2.first_name, m2.last_name, m2.gender, "Manager", m2.member_ID)
 staff_2.Approve_loan()
 staff_2.Manage_Accounts()
 staff_2.Generate_reports()
 
 # Instantiating Our FIRST Withdrawal from the SACCO using {FIRST member instance}
 print()
-w1 = Withdraw("WiD_001", acc1.account_No, acc1.Get_Balance(), "10-Oct-2025")
+w1 = Withdraw("WiD_001", acc1.account_No, 1000000, "10-Oct-2025")
 w1.Check_Balance()
 w1.Update_Balance()
 w1.Return_Result()
