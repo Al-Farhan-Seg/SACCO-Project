@@ -1,10 +1,6 @@
-# from account_module import Account
-# class Saving(Account):
-
 class Saving:
 
     def __init__(self, deposit_ID, account_No, amount, month, year, date):
-        super().__init__()
         self.deposit_ID = deposit_ID
         self.account_No = account_No
         self.amount = amount

@@ -1,11 +1,12 @@
-from member_module import Member
-class Staff(Member):
+class Staff:
 
-    def __init__(self, staff_ID, first_name, last_name, gender, contact, position, member_ID):
-        super().__init__(member_ID, first_name, last_name, gender, contact)
+    def __init__(self, staff_ID, first_name, last_name, gender, position, member_ID):
         self.staff_ID = staff_ID
+        self.first_name = first_name
+        self.last_name = last_name
+        self.gender = gender
         self.position = position
-
+        self.member_ID = member_ID
 
 
     def Approve_loan(self):

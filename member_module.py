@@ -1,13 +1,14 @@
 class Member:
 
-    def __init__(self, member_ID, first_name, last_name, gender, contact):
+    def __init__(self, member_ID, first_name, last_name, gender, contact, address):
         self.member_ID = member_ID
         self.first_name = first_name
         self.last_name = last_name
         self.__email = ""
         self.gender = gender
         self.contact = contact
-        #add
+        self.address = address
+        
 
     
     def Register(self):
