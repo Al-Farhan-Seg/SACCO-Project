@@ -1,7 +1,7 @@
 from member_module import Member
 from saving_module import Saving
 from withdraw_module import Withdraw
-from staff_module import Staff
+from staff_module import Staff, PartTime_Staff, Fulltime_Staff
 from account_module import Account
 from loan_module import Loan
 
