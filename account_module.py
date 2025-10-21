@@ -7,13 +7,23 @@ class Account:
         self.__balance = 0
         
 
-    def Credit(self):
-        print(f"""Your SACCO {self.account_type} account Acc_No. {self.account_No[0:4]}-XXXX has been credited......""")
-        # return f"""Your SACCO {self.account_type} account Acc_No. {self.account_No[0:4]}-XXXX has been credited......"""
+    def Credit(self, amount):
+        if amount <= 0:
+            return f"Deposit amount has to be greater than 0"
+        else:
+            self.__balance += amount
+            print(f"Your SACCO {self.account_type} account Acc_No. {self.account_No[0:4]}-XXXX has been credited by {amount}......")
+            return self.__balance
 
-    def Debit(self):
-        print(f"""Your SACCO {self.account_type} account Acc_No. {self.account_No[0:4]}-XXXX has been debited......""")
-        # return f"""Your SACCO {self.account_type} account Acc_No. {self.account_No[0:4]}-XXXX has been debited......"""
+    def Debit(self, amount):
+        if amount <= 0:
+            return "Withdraw amount has to be greater than 0"
+        elif amount > self.__balance:
+            return "You have Insufficient funds."
+        else:
+            self.__balance -= amount
+            return f"Your SACCO {self.account_type} account Acc_No. {self.account_No[0:4]}-XXXX has been debited by {amount}......"
+
     
     def Get_Balance(self):
         return self.__balance 
