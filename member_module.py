@@ -23,7 +23,6 @@ class Member:
     
     def Withdraw(self, amount):
         print(f"Member {self.member_ID} has initiated a withdraw.....")
-        Account().Debit()
         # return f"Member {self.member_ID} has initiated a withdraw.....\n"
     
     def set_email(self):
