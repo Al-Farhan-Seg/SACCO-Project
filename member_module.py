@@ -1,3 +1,5 @@
+from account_module import Account
+
 class Member:
 
     def __init__(self, member_ID, first_name, last_name, gender, contact, address):
@@ -12,15 +14,16 @@ class Member:
 
     
     def Register(self):
-        print(f"NEW MEMBER REGISTERED......\n{self.member_ID}---{self.first_name} {self.last_name}")
-        # return f"\nNEW MEMBER REGISTERED......\n{self.member_ID}---{self.first_name} {self.last_name}"
 
-    def Deposit(self):
+        return f"NEW MEMBER REGISTERED......\n{self.member_ID}---{self.first_name} {self.last_name}"
+
+    def Deposit(self, amount):
         print(f"Member {self.member_ID} has initiated a deposit.....")
         # return f"Member {self.member_ID} has initiated a deposit.....\n"
     
-    def Withdraw(self):
+    def Withdraw(self, amount):
         print(f"Member {self.member_ID} has initiated a withdraw.....")
+        Account().Debit()
         # return f"Member {self.member_ID} has initiated a withdraw.....\n"
     
     def set_email(self):
