@@ -1,25 +1,50 @@
+from account_module import *
 class Saving:
 
-    def __init__(self, deposit_ID, account_No, amount, month, year, date):
-        self.deposit_ID = deposit_ID
-        self.account_No = account_No
+    IDs = []
+
+    def ID_gen(self):
+        import random
+        while True:
+            ID = random.randint(100000, 999999)
+            if ID not in Saving.IDs:
+                Saving.IDs.append(ID)
+                False
+                return f"TXN-{ID}"
+            else:
+                continue
+
+    def __init__(self, amount, month, year, date): #removed ACCOUNT_NO and auto-generated DEPOSIT_ID
+        self.deposit_ID = self.ID_gen()
+        #self.account_No = account_No
         self.amount = amount
         self.month = month
         self.year = year
         self.date = date
 
+    # Composition application............
+    def __Update_Balance(self, account_obj):
+        account_obj._Account__balance += self.amount
+       
+    def Record_Deposit(self, account_obj):
+        self.__Update_Balance(account_obj)
 
-    def Update_Balance(self):
-        print("*****Balance Updated*****")
-        print("New Balance: 'UNSPECIFIED yet' ")
-
-    def Record_Deposit(self):
-        print(f"""******Payment Received*****
+        return f"""******Payment Received*****
               
 Deposit ID: {self.deposit_ID}
-Acc_No: {self.account_No[0:4]}-XXXX
+Acc_No: {account_obj.account_No[0:4]}-XXXX
 Amount: {self.amount}
 Date of payment: {self.date}
-for: {self.month}-{self.year}""")
-        # return """ """
-    
+for: {self.month}-{self.year}"""
+
+
+
+
+
+#------TESTING--------------
+s = Saving(20000, "February", 2020, "Date")
+print(s.deposit_ID)
+
+acc1 = Account("4070-4300", "MB-001", "Ordinary Savings")
+print(s.Record_Deposit(acc1))
+print(acc1._Account__balance)
