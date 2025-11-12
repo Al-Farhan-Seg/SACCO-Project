@@ -1,3 +1,4 @@
+from member_module import *
 class Staff:
 
     def __init__(self, staff_ID, first_name, last_name, gender, position):
@@ -10,16 +11,16 @@ class Staff:
 
 
     def Approve_loan(self):
-        print(f"Loan Approved..........\nProcessed by: {self.first_name} {self.last_name}")
-        # return f"Loan Approved..........\nProcessed by: {self.first_name} {self.last_name}"
+
+        return f"Loan Approved..........\nProcessed by: {self.first_name} {self.last_name}"
 
     def Manage_Accounts(self):
-        print(f"Access granted......\nStaff Member: {self.first_name} {self.last_name}\nStaff ID: {self.staff_ID}")
-        # return f"Access granted......\nStaff Member: {self.first_name} {self.last_name}\nStaff ID: {self.staff_ID}"
+
+        return f"Access granted......\nStaff Member: {self.first_name} {self.last_name}\nStaff ID: {self.staff_ID}"
     
     def Generate_reports(self):
-        print(f"Report generated.......\nGenereted by: {self.first_name} {self.last_name}")
-        # return f"Report generated.......\nGenereted by: {self.first_name} {self.last_name}"
+
+        return f"Report generated.......\nGenereted by: {self.first_name} {self.last_name}"
 
     def compute_Salary(self):
         return self.salary
@@ -42,4 +43,7 @@ class PartTime_Staff(Staff):
 
     def compute_Salary(self, hours_worked):
         return hours_worked * self.rate_per_hour
+    
+
+
     
