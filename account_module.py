@@ -12,8 +12,7 @@ class Account:
             return f"Deposit amount has to be greater than 0"
         else:
             self.__balance += amount
-            print(f"Your SACCO {self.account_type} account Acc_No. {self.account_No[0:4]}-XXXX has been credited by {amount}......")
-            return self.__balance
+            return f"Your SACCO {self.account_type} account Acc_No. {self.account_No[0:4]}-XXXX has been credited by {amount}......"
 
     def Debit(self, amount):
         if amount <= 0:
