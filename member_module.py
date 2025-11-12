@@ -1,4 +1,5 @@
-from account_module import Account
+from account_module import *
+from time import *
 
 class Member:
 
@@ -10,20 +11,32 @@ class Member:
         self.gender = gender
         self.contact = contact
         self.address = address
-        
+    
 
     
     def Register(self):
 
         return f"NEW MEMBER REGISTERED......\n{self.member_ID}---{self.first_name} {self.last_name}"
-
-    def Deposit(self, amount):
-        print(f"Member {self.member_ID} has initiated a deposit.....")
-        # return f"Member {self.member_ID} has initiated a deposit.....\n"
     
-    def Withdraw(self, amount):
+    # ---------An application of COMPOSITION
+    def Deposit(self, amount, account_obj):
+        print(f"Member {self.member_ID} has initiated a deposit.....")
+        sleep(3)
+        if amount < 1:
+            return "Deposit amount MUST be greater than ZERO(0)"
+        if self.member_ID != account_obj.member_ID:
+            return f"The account provided does not belong to {self.first_name} {self.last_name}"
+        account_obj.Credit(amount)
+    
+    # ---------An application of COMPOSITION
+    def Withdraw(self, amount, account_obj):
         print(f"Member {self.member_ID} has initiated a withdraw.....")
-        # return f"Member {self.member_ID} has initiated a withdraw.....\n"
+        sleep(3)
+        if amount < 1:
+            return "Withdraw amount MUST be greater than ZERO(0)"
+        if self.member_ID != account_obj.member_ID:
+            return f"The account provided does not belong to {self.first_name} {self.last_name}"
+        account_obj.Debit(amount)
     
     def set_email(self):
         self.__email = f"{self.first_name}.{self.last_name}@gmail.com"
@@ -45,10 +58,10 @@ class Premium_Member(Member):
 
 
 class Ordinary_Member(Member):
-    def __init__(self, member_ID, first_name, last_name, gender, contact, address, voting):
+    def __init__(self, member_ID, first_name, last_name, gender, contact, address):
         super().__init__(member_ID, first_name, last_name, gender, contact, address)
         self.loan_svg_percentage = 10
-        self.voting = True
+        self.voting = True # Some members have the RIGHT TO VOTE
 
     def vote_on_policy(self, decision):
         if self.voting == True:
