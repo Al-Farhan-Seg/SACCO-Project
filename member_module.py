@@ -1,4 +1,3 @@
-from account_module import *
 from time import *
 
 class Member:
@@ -24,9 +23,10 @@ class Member:
         sleep(3)
         if amount < 1:
             return "Deposit amount MUST be greater than ZERO(0)"
-        if self.member_ID != account_obj.member_ID:
+        if self.member_ID != account_obj.member.member_ID:
             return f"The account provided does not belong to {self.first_name} {self.last_name}"
-        account_obj.Credit(amount)
+        
+        print(account_obj.Credit(amount))
     
     # ---------An application of COMPOSITION
     def Withdraw(self, amount, account_obj):
@@ -34,12 +34,12 @@ class Member:
         sleep(3)
         if amount < 1:
             return "Withdraw amount MUST be greater than ZERO(0)"
-        if self.member_ID != account_obj.member_ID:
+        if self.member_ID != account_obj.member.member_ID:
             return f"The account provided does not belong to {self.first_name} {self.last_name}"
-        account_obj.Debit(amount)
+        print(account_obj.Debit(amount))
     
     def set_email(self):
-        self.__email = f"{self.first_name}.{self.last_name}@gmail.com"
+        self.__email = f"{self.first_name}.".lower() + f"{self.last_name}".lower() + "@gmail.com"
     
     def get_email(self):
         return self.__email
@@ -47,7 +47,7 @@ class Member:
 class Premium_Member(Member):
     def __init__(self, member_ID, first_name, last_name, gender, contact, address, position):
         super().__init__(member_ID, first_name, last_name, gender, contact, address)
-        self.loan_svg_percentage = 50
+        self.loan_svg_percentage = 0.5
         self.position = position
 
     def terminate_Member(self, person):
@@ -60,7 +60,7 @@ class Premium_Member(Member):
 class Ordinary_Member(Member):
     def __init__(self, member_ID, first_name, last_name, gender, contact, address):
         super().__init__(member_ID, first_name, last_name, gender, contact, address)
-        self.loan_svg_percentage = 10
+        self.loan_svg_percentage = 0.1
         self.voting = True # Some members have the RIGHT TO VOTE
 
     def vote_on_policy(self, decision):
@@ -72,7 +72,5 @@ class Ordinary_Member(Member):
             print(f"Name: {self.first_name} {self.last_name}")
             print("Voting Rights: NOT ALLOWED")
             print(f"Decision: INVALID")
-
-
 
 
