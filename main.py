@@ -1,61 +1,49 @@
-from member_module import Member
-from saving_module import Saving
-from withdraw_module import Withdraw
-from staff_module import Staff, PartTime_Staff, Fulltime_Staff
-from account_module import Account
-from loan_module import Loan
+from member_module import *
+from account_module import *
+from saving_module import *
+from staff_module import *
+from loan_module import *
+from withdraw_module import *
 
-# Instantiating Our FIRST Member object
-m1 = Member("MiD_001", "Farhan", "Segujja", "Male", "0754882329", "Matugga")
-m1.Register()
-m1.Withdraw()
-m1.Deposit()
+#----------MEMBER instance--------------
+m1 = Premium_Member("MB-001", "Farhan", "Segujja", "Male", "0754882329", "Matugga", "C.E.O")
+m1.set_email()
+print(m1.get_email())
 
-# Instantiating Our SECOND Member object {intended to be used for the STAFF object}
+#------------ACCOUNT instance plus COMPOSITION in attributes---------
+acc1 = Account("4300-1278", m1, "Savings")
+print(m1.Deposit(200000, acc1))
+print(f"ACCOUNT_BALANCE after using MEMBER CLASS method: {acc1.Get_Balance()}")
+
+
+#-------------SAVING instance plus COMPOSITION in methods------------
+s = Saving(20000, "February", 2020)
 print()
-m2 = Member("MiD_002", "Bugembe", "Mahad", 'Male', "0703889536", "Kazo")
-m2.Register()
-m2.Withdraw()
-m2.Deposit()
-print(m2.get_email())
+print(s.Record_Deposit(acc1))
+print(f"ACCOUNT_BALANCE after using SAVING CLASS method: {acc1.Get_Balance()}")
 
-# Instantiating Our FIRST Account object
+
+#-------------STAFF instance----------------------------
 print()
-acc1 = Account("4070-4300", m1.member_ID,"Ordinary Savings")
-acc1.Credit()
-acc1.Debit()
-print(f"Account Balance: UGX {acc1.Get_Balance()}")
+f1 = Fulltime_Staff("S-001", "Farhan", "Segujja", "Male", "Manager", 20)
+print(f1.set_salary(20000))
+print(f1.compute_Salary())
 
-# Instantiating Our FIRST member of STAFF object {using our SECOND Member instance }
+f2 = PartTime_Staff("S-002", "Lwanga", "Najib", "Male", "Treasurer", 5000)
+print(f2.compute_Salary(10))
+
+#-------------LOAN instance--------------
 print()
-staff_2 = Staff("SiD_002", m2.first_name, m2.last_name, m2.gender, "Manager", m2.member_ID)
-staff_2.Approve_loan()
-staff_2.Manage_Accounts()
-staff_2.Generate_reports()
+loan1 = Loan("L-0115", m1, 10000, 20)
+loan1.set_payment_amount()
+loan1.Approve_Loan()
 
-# Instantiating Our FIRST Withdrawal from the SACCO using {FIRST member instance}
-print()
-w1 = Withdraw("WiD_001", acc1.account_No, 1000000, "10-Oct-2025")
-w1.Check_Balance()
-w1.Update_Balance()
-w1.Return_Result()
-
-# Instantiating Our FIRST Saving object
-print()
-sv_1 = Saving("d-iD_001", acc1.account_No, 50000, "February", "2024", "09-09-2025")
-sv_1.Update_Balance()
-sv_1.Record_Deposit()
-
-# Instantiating Our FIRST Loan object
-print()
-loan_1 = Loan("LiD_001", acc1.member_ID, 500000, 24)
-loan_1.Record_Payment()
-loan_1.set_payment_amount()
-print(loan_1.get_payment_amount())
-loan_1.Approve_Loan()
+#------------LOAN PAYMENT instance plus composition in attributes
+p1 = Loan_Payment(loan1, "P-12768", 2000, "May", 2025)
+print(p1.Record_Payment())
 
 
-
-
-
-
+#------------WITHDRAW instance plus composition in attributes
+w1 = Withdraw("W-001", acc1)
+w1.Initiate_Withdraw()
+print(f"ACCOUNT_BALANCE after using WITHDRAW CLASS method: {acc1.Get_Balance()}")
