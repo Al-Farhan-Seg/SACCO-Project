@@ -1,8 +1,9 @@
+from datetime import datetime
 class Loan:
 
-    def __init__(self, loan_ID, member_ID, loan_amount, payment_period):
+    def __init__(self, loan_ID, member, loan_amount, payment_period):
         self.loan_ID = loan_ID
-        self.member_ID = member_ID
+        self.member = member
         self.loan_amount = loan_amount
         self.payment_period = payment_period
         self.__payment_amount = 0
@@ -20,31 +21,35 @@ class Loan:
         print(f"""******Loan Approved******
 
 Loan ID: {self.loan_ID}
-Member Id: {self.member_ID}
 Loan Amount: {self.loan_amount}
+Loan Applicant: {self.member.first_name} {self.member.last_name}
+Membership No: {self.member.member_ID}
+Applicant's Contact: {self.member.contact}
 Payment Plan: 
             UGX. {self.get_payment_amount()} monthly for {self.payment_period} months\n""")
 
 
-class Loan_Payment(Loan):
-    def __init__(self, loan_ID, member_ID, loan_amount, payment_period, payment_ID, amount, month, year, date):
-        super().__init__(loan_ID, member_ID, loan_amount, payment_period)
+class Loan_Payment():
+    def __init__(self, loan, payment_ID, amount, for_month, for_year):
+        self.loan = loan
         self.payment_ID = payment_ID
         self.amount = amount
-        self.month = month
-        self.year = year
-        self.date = date
+        self.for_month = for_month
+        self.for_year = for_year
+        self.date = datetime.now().strftime("%A/%d/%m/%Y, %H:%M:%S")
 
 
     def Record_Payment(self):
-        self.loan_amount = self.loan_amount - self.amount
+        self.loan.loan_amount -= self.amount
         print("LOAN PAYMENT RECEIVED".center(50, "."))
 
         return f""" ------------------------------------------------
-|             Payment ID: {self.payment_ID}                 |
-| Amount received: UGX.{self.amount} from '{self.member_ID}'        |
-| for '{self.month}-{self.year}' on Date: {self.date}        |
-| Outstanding Loan Amount: UGX.{self.loan_amount}          |
+|             Payment ID: {self.payment_ID}
+| Amount: UGX.{self.amount}
+| Paid by: {self.loan.member.first_name} {self.loan.member.last_name} ({self.loan.member.member_ID})
+| For: '{self.for_month}-{self.for_year}'
+| Date: {self.date}
+| Outstanding Loan Amount: UGX.{self.loan.loan_amount}
  ------------------------------------------------"""
         
 
