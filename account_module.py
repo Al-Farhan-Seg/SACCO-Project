@@ -1,9 +1,9 @@
 class Account:
 
-    def __init__(self, account_No, member_ID, account_type):
+    def __init__(self, account_No, member, account_type):
         self.account_No = account_No
         self.account_type = account_type
-        self.member_ID = member_ID
+        self.member = member
         self.__balance = 0
         
 
