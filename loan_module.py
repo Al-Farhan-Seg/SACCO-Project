@@ -18,7 +18,7 @@ class Loan:
 
 
     def Approve_Loan(self):
-        print(f"""******Loan Approved******
+        return f"""******Loan Approved******
 
 Loan ID: {self.loan_ID}
 Loan Amount: {self.loan_amount}
@@ -26,7 +26,7 @@ Loan Applicant: {self.member.first_name} {self.member.last_name}
 Membership No: {self.member.member_ID}
 Applicant's Contact: {self.member.contact}
 Payment Plan: 
-            UGX. {self.get_payment_amount()} monthly for {self.payment_period} months\n""")
+            UGX. {self.get_payment_amount()} monthly for {self.payment_period} months\n"""
 
 
 class Loan_Payment():
