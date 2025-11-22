@@ -15,7 +15,12 @@ class Member:
     
     def Register(self):
 
-        return f"NEW MEMBER REGISTERED......\n{self.member_ID}---{self.first_name} {self.last_name}"
+        return f"""NEW MEMBER REGISTERED......
+Member ID: {self.member_ID}
+Name: {self.first_name} {self.last_name}
+Contact: {self.contact}
+Gender: {self.gender}
+Address: {self.address}"""
     
     # ---------An application of COMPOSITION
     def Deposit(self, amount, account_obj):
