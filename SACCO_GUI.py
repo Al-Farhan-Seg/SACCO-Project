@@ -76,7 +76,8 @@ def display_main():
             if member_id in members:
                 messagebox.showerror("Duplicate Member", f"Member ID '{member_id}' already exists.")
                 return
-            
+           
+
             member_inst = Member(
                 member_id,
                 first_name,
@@ -92,8 +93,11 @@ def display_main():
             result = member_inst.Register()
 
             messagebox.showinfo("Member Registered", result)
+            mem_window.destroy()
             
         Button(mem_window, text= "REGISTER MEMBER".center(30,"-") ,command=register_member).pack(pady=10)
+        
+
 
 
     # --- ADDED: Account Registration window
@@ -141,7 +145,8 @@ Account Type: {acc_type}
 '''
 
             messagebox.showinfo("Account Created", summary)
-        
+            acc_window.destroy()
+
         Button(acc_window, text="CREATE ACCOUNT".center(30, "-"), command=create_account).pack(pady=12)
 
 
@@ -163,7 +168,7 @@ Account Type: {acc_type}
         loan_amount_ent = Entry(loan_window)
         loan_amount_ent.pack()
 
-        Label(loan_window, text="Payment Period (months, integer)", bg="#f9cb9a").pack(pady=6)
+        Label(loan_window, text="Payment Period (Months)", bg="#f9cb9a").pack(pady=6)
         payment_period_ent = Entry(loan_window)
         payment_period_ent.pack()
 
@@ -200,9 +205,9 @@ Account Type: {acc_type}
             loans[loan_id] = loan_inst
 
 
-            summary = loan_inst.Approve_Loan()
-
-            messagebox.showinfo("Loan Created", summary)
+            result = loan_inst.Approve_Loan()
+            messagebox.showinfo("Loan Created", result)
+            loan_window.destroy()
 
         Button(loan_window, text="CREATE & SET PAYMENT".center(30, "-"), command=create_loan).pack(pady=12)
 
@@ -246,8 +251,10 @@ Account Type: {acc_type}
             except ValueError:
                 messagebox.showerror("Invalid Amount", "Enter a valid integer amount.")
                 return
+            
             res = acc_obj.Credit(val)
             messagebox.showinfo("Deposit Result", res)
+            dwin.destroy()
 
         Button(dwin, text="DEPOSIT", command=do_deposit).pack(pady=12)
 
@@ -279,8 +286,10 @@ Account Type: {acc_type}
             except ValueError:
                 messagebox.showerror("Invalid Amount", "Enter a valid integer amount.")
                 return
+            
             res = acc_obj.Debit(val)
             messagebox.showinfo("Withdraw Result", res)
+            wwin.destroy()
 
         Button(wwin, text="WITHDRAW", command=do_withdraw).pack(pady=12)
 
@@ -302,9 +311,12 @@ Account Type: {acc_type}
             if not acc_obj:
                 messagebox.showerror("Account Not Found", f"No account with number '{acc_no}' found.")
                 return
+            
             bal = acc_obj.Get_Balance()
             messagebox.showinfo("Account Balance", f"Balance for {acc_no}: UGX. {bal}")
+            bwin.destroy()
 
+    
         Button(bwin, text="GET BALANCE", command=show_balance).pack(pady=12)
 # ...existing code...
 
