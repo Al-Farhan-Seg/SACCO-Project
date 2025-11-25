@@ -5,6 +5,7 @@ venv/
 env/
 mytests.py
 SACCO_GUI_2.py
+none
 
 # IDE
 .vscode/
