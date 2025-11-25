@@ -1,4 +1,3 @@
-# ...existing code...
 from tkinter import *
 from tkinter import messagebox
 from member_module import *
@@ -13,11 +12,10 @@ mainWindow.config(
         bg="#C4956A",
 )
 
-# --- ADDED: in-memory storage for created objects
+# --- in-memory storage for created objects
 members = {}   # key: member_id -> Member instance
 accounts = {}  # key: account_no -> Account instance
 loans = {}     # key: loan_id -> Loan instance
-# ...existing code...
 
 def display_main():
     window2 = Toplevel(mainWindow, bg="#B2A67C")
@@ -28,8 +26,6 @@ def display_main():
     Button(window2, text="Member Registration", width=20, pady=5, command=lambda:member_reg_win(window2)).pack(pady=10)
     Button(window2, text="Account Registration", width=20, pady=5, command=lambda:account_reg_win(window2)).pack(pady=10)
     Button(window2, text="Loan Registration", width=20, pady=5, command=lambda:loan_reg_win(window2)).pack(pady=10)
-
-    # --- ADDED: Account operations entry in main menu
     Button(window2, text="Account Operations", width=20, pady=5, command=lambda:account_ops_win(window2)).pack(pady=10)
 
     def member_reg_win(parent):
@@ -100,7 +96,7 @@ def display_main():
 
 
 
-    # --- ADDED: Account Registration window
+    # --- Account Registration window
     def account_reg_win(parent):
         acc_window = Toplevel(parent, bg="#e0f7ff")
         acc_window.title("Account Registration Panel")
@@ -150,7 +146,7 @@ Account Type: {acc_type}
         Button(acc_window, text="CREATE ACCOUNT".center(30, "-"), command=create_account).pack(pady=12)
 
 
-    # --- ADDED: Loan Registration window
+    # --- Loan Registration window
     def loan_reg_win(parent):
         loan_window = Toplevel(parent, bg="#f9cb9a")
         loan_window.title("Loan Registration Panel")
@@ -168,7 +164,7 @@ Account Type: {acc_type}
         loan_amount_ent = Entry(loan_window)
         loan_amount_ent.pack()
 
-        Label(loan_window, text="Payment Period (Months)", bg="#f9cb9a").pack(pady=6)
+        Label(loan_window, text="Payment Period (Months)", bg="#aeaaa5").pack(pady=6)
         payment_period_ent = Entry(loan_window)
         payment_period_ent.pack()
 
@@ -211,7 +207,7 @@ Account Type: {acc_type}
 
         Button(loan_window, text="CREATE & SET PAYMENT".center(30, "-"), command=create_loan).pack(pady=12)
 
-    # --- ADDED: Account operations window + deposit/withdraw/balance actions
+    # --- Account operations window + deposit/withdraw/balance actions
     def account_ops_win(parent):
         ops_win = Toplevel(parent, bg="#dfe7d7")
         ops_win.title("Account Operations")
@@ -318,7 +314,6 @@ Account Type: {acc_type}
 
     
         Button(bwin, text="GET BALANCE", command=show_balance).pack(pady=12)
-# ...existing code...
 
 Label(mainWindow, text="---SACCO Management System---", font=("ALGERIAN", 14, "bold", "italic"), bg="#C4956A").pack(pady=30)
 
@@ -348,4 +343,3 @@ def login_accept():
 Button(mainWindow, text="LOGIN", width=10, command=login_accept).pack(pady=20)
 
 mainWindow.mainloop()
-# ...existing code...
