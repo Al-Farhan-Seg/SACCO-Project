@@ -4,6 +4,7 @@ __pycache__/
 venv/
 env/
 mytests.py
+SACCO_GUI_2.py
 
 # IDE
 .vscode/
