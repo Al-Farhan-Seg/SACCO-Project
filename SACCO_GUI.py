@@ -342,4 +342,5 @@ def login_accept():
     
 Button(mainWindow, text="LOGIN", width=10, command=login_accept).pack(pady=20)
 
+input("Enter what you want: ")
 mainWindow.mainloop()
