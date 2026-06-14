@@ -1,39 +1,214 @@
 # SACCO Management System
 
-## This is a Python OOP Project for a SACCO Management System that has:
-  <li><i> Member Module (Premium and Ordinary): </i></li>
-  <p> This describes the attributes of the SACCO Member and also clarifies the UNIQUE attributes of the <b>Premium and Ordinary member</b> who inherit from the MEMBER class</p>
-  
-  <li><i> Staff Module (Full-Time and Part-Time): </i></li>
-  <p> This describes the attributes of the SACCO Staff and also clarifies the UNIQUE attributes of the Full-Time and Part-Time Staff who inherit from the STAFF class</p>
-  
-  <li><i> Loan Processing Module: </i></li>
-  <ol>
-    <li> This is where <b>LOAN PROCESSING</b> is done by determining the LOAN to be given as a PERCENTAGE of the current Savings of the Member and what Category of Member he/she is. </li>
-    <li> It also has another class for <b>LOAN PAYMENT PROCESSING</b> clearly recording the date of the payment and for what MONTH-YEAR.</li>
-  </ol>
-  
-  <li><i> Account Management Module: </i></li>
-  <p> This describes the attributes of the <b>ACCOUNT</b> assigning an account number and also allowing the Member to <i>Credit and Debit</i> their <b>ACCOUNT</b></p>
-  
-  <li><i> One-Time Withdrawal Module: </i></li>
-  <p> This gives the <b>MEMBER</b> a chance to withdraw from the SACCO once and for all after meeting certain <b>REQUIREMENTS</b></p>
-  
-  <li><i> Savings Module: </i></li>
-  <p>This is where all payments to the SACCO are managed, recording each deposit and concurrently UPDATING the <i>Balance</i></p>
-  <br>
-  <br>
+A Python Object-Oriented Programming project that models the core operations of a SACCO, including members, staff, savings, accounts, loans, and withdrawals.
 
-  ## Simple (ChatGPT) Concept Graphic 👇👇👇
+## Overview
 
-<img width="536" height="300" alt="ChatGPT Image Oct 20, 2025, 08_22_10 AM" src="https://github.com/user-attachments/assets/ad0c699b-c0db-490d-96ab-4ed28bd4720e" />
+This project was built as an academic OOP system to demonstrate how real-world entities can be represented using classes, inheritance, and object interactions.
 
- ### Tremendous Work by:
- <ul>
-   <li><a href = "https://github.com/Al-Farhan-Seg" target = "_blank">Farhan Segujja</a></li>
-   <li><a href = "https://github.com/CODEGUY547" target = "_blank">Bugembe Mahad</a></li>
-   <li><a href = "https://github.com/Najiblw" target = "_blank">Lwanga Najib</a></li>
- </ul>
+The system models different types of SACCO members and staff, processes savings and loans, manages accounts, and supports one-time withdrawal logic.
 
+## Key OOP Concepts Demonstrated
+
+- Classes and objects
+- Inheritance
+- Encapsulation
+- Method overriding
+- Object composition
+- Separation of responsibilities
+
+## Features
+
+### Member Management
+
+- Supports ordinary and premium members
+- Stores member details
+- Demonstrates inheritance from a base member class
+
+### Staff Management
+
+- Supports full-time and part-time staff
+- Separates shared staff attributes from unique staff-type behavior
+
+### Savings Management
+
+- Records member deposits
+- Updates member savings balance
+- Tracks savings activity
+
+### Loan Processing
+
+- Calculates loan eligibility based on member savings
+- Supports loan payment tracking
+- Records payment date and target month/year
+
+### Account Management
+
+- Assigns account numbers
+- Supports credit and debit operations
+- Tracks account balance changes
+
+### One-Time Withdrawal
+
+- Allows members to withdraw from the SACCO after meeting required conditions
+
+## Project Structure
+
+```text
+SACCO-Project/
+├── README.md
+├── main.py
+└── src/
+```
+
+Update this section based on your real files.
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.x
+- Git
+
+### Installation
+
+```bash
+git clone https://github.com/Al-Farhan-Seg/SACCO-Project.git
+cd SACCO-Project
+```
+
+### Running the Project
+
+```bash
+python main.py
+```
+
+Update the command if your entry file has a different name.
+
+## What I Learned
+
+- How to translate real-world SACCO operations into software classes
+- How inheritance helps reduce repeated code
+- How different modules can collaborate in an OOP system
+- How to organize a coursework project into meaningful responsibilities
+
+## Future Improvements
+
+- [ ] Add database storage
+- [ ] Add a command-line menu
+- [ ] Add input validation
+- [ ] Add unit tests
+- [ ] Add a simple GUI or web interface
+
+## Contributors
+
+- [Farhan Segujja](https://github.com/Al-Farhan-Seg)
+- Bugembe Mahad# SACCO Management System
+
+A Python Object-Oriented Programming project that models the core operations of a SACCO, including members, staff, savings, accounts, loans, and withdrawals.
+
+## Overview
+
+This project was built as an academic OOP system to demonstrate how real-world entities can be represented using classes, inheritance, and object interactions.
+
+The system models different types of SACCO members and staff, processes savings and loans, manages accounts, and supports one-time withdrawal logic.
+
+## Key OOP Concepts Demonstrated
+
+- Classes and objects
+- Inheritance
+- Encapsulation
+- Method overriding
+- Object composition
+- Separation of responsibilities
+
+## Features
+
+### Member Management
+
+- Supports ordinary and premium members
+- Stores member details
+- Demonstrates inheritance from a base member class
+
+### Staff Management
+
+- Supports full-time and part-time staff
+- Separates shared staff attributes from unique staff-type behavior
+
+### Savings Management
+
+- Records member deposits
+- Updates member savings balance
+- Tracks savings activity
+
+### Loan Processing
+
+- Calculates loan eligibility based on member savings
+- Supports loan payment tracking
+- Records payment date and target month/year
+
+### Account Management
+
+- Assigns account numbers
+- Supports credit and debit operations
+- Tracks account balance changes
+
+### One-Time Withdrawal
+
+- Allows members to withdraw from the SACCO after meeting required conditions
+
+## Project Structure
+
+```text
+SACCO-Project/
+├── README.md
+├── main.py
+└── src/
+```
+
+Update this section based on your real files.
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.x
+- Git
+
+### Installation
+
+```bash
+git clone https://github.com/Al-Farhan-Seg/SACCO-Project.git
+cd SACCO-Project
+```
+
+### Running the Project
+
+```bash
+python main.py
+```
+
+Update the command if your entry file has a different name.
+
+## What I Learned
+
+- How to translate real-world SACCO operations into software classes
+- How inheritance helps reduce repeated code
+- How different modules can collaborate in an OOP system
+- How to organize a coursework project into meaningful responsibilities
+
+## Future Improvements
+
+- [ ] Add database storage
+- [ ] Add a command-line menu
+- [ ] Add input validation
+- [ ] Add unit tests
+- [ ] Add a simple GUI or web interface
+
+## Contributors
+
+- [Farhan Segujja](https://github.com/Al-Farhan-Seg)
+- [Bugembe Mahad] (https://github.com/CODEGUY547)
+- [Lwanga Najib] (https://github.com/Najiblw)
   
 
